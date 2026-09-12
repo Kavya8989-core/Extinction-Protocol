@@ -423,6 +423,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74c84"]
+height = 52.126694
+
 [node name="Mc" type="CharacterBody2D" unique_id=2000332201]
 script = ExtResource("1_4qllp")
 
@@ -430,6 +433,8 @@ script = ExtResource("1_4qllp")
 position = Vector2(13, 28.000002)
 scale = Vector2(1.9765625, 1.7265625)
 sprite_frames = SubResource("SpriteFrames_74c84")
-animation = &"hurt right"
-frame = 1
-frame_progress = 1.0
+animation = &"attack1 right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=105349135]
+position = Vector2(1.0118575, 31.276016)
+shape = SubResource("CapsuleShape2D_74c84")
