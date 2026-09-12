@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Extiction protocol"
-run/main_scene="res://intro.tscn"
+run/main_scene="res://scenes/asset scene/intro.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

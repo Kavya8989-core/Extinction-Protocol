@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c476ss5w1byoe"]
+
+[ext_resource type="Texture2D" uid="uid://j0ueltl8h4xp" path="res://assets/mc/individual_sheets/male_hero-idle.png" id="1_ki018"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be1u1"]
+atlas = ExtResource("1_ki018")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0xtj"]
+atlas = ExtResource("1_ki018")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkdj2"]
+atlas = ExtResource("1_ki018")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7not8"]
+atlas = ExtResource("1_ki018")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlmjl"]
+atlas = ExtResource("1_ki018")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yvj1"]
+atlas = ExtResource("1_ki018")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qllp"]
+atlas = ExtResource("1_ki018")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxckh"]
+atlas = ExtResource("1_ki018")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hornd"]
+atlas = ExtResource("1_ki018")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j1je"]
+atlas = ExtResource("1_ki018")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_74c84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be1u1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0xtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkdj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7not8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlmjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yvj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qllp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxckh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hornd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j1je")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 11.0
+}]
+
+[node name="Mc" type="CharacterBody2D" unique_id=2000332201]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1692689915]
+position = Vector2(13, 28.000002)
+scale = Vector2(1.9765625, 1.7265625)
+sprite_frames = SubResource("SpriteFrames_74c84")
+animation = &"idle"
+frame_progress = 0.39333662
