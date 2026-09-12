@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dr27o25o6tfn"]
+
+[ext_resource type="VideoStream" uid="uid://4y4gcj0xifj4" path="res://scenes/video clip/lv_0_20260912132527.ogv" id="1_s2ta7"]
+
+[node name="intro" type="Node2D" unique_id=22161401]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1577448963]
+limit_right = 20000000
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=128903232]
+offset_left = -577.0
+offset_top = -323.0
+offset_right = 1343.0
+offset_bottom = 757.0
+scale = Vector2(0.6, 0.6)
+stream = ExtResource("1_s2ta7")
+autoplay = true
