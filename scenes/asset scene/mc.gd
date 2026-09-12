@@ -19,12 +19,14 @@ func _physics_process(delta: float) -> void:
 
 
 func process_animation( direction: float) -> void:
-	if direction > 0:
+	if Input.is_action_pressed("attack"):
+		animatiedsprite2d.play("attack1 right")
+	elif direction > 0:
 		animatiedsprite2d.flip_h = false
 		animatiedsprite2d.play("walk right")
 		
 	elif direction < 0:
 		animatiedsprite2d.flip_h = true
 		animatiedsprite2d.play("walk right")
-	else:
+	elif direction == 0:
 		animatiedsprite2d.play("idle right")
