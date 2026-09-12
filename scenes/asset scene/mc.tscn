@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c476ss5w1byoe"]
 
 [ext_resource type="Texture2D" uid="uid://j0ueltl8h4xp" path="res://assets/mc/individual_sheets/male_hero-idle.png" id="1_ki018"]
+[ext_resource type="Texture2D" uid="uid://dkrwhlngrhtyk" path="res://assets/mc/individual_sheets/male_hero-walk.png" id="2_be1u1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_be1u1"]
 atlas = ExtResource("1_ki018")
@@ -42,6 +43,46 @@ region = Rect2(1024, 0, 128, 128)
 atlas = ExtResource("1_ki018")
 region = Rect2(1152, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_srtaf"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jojog"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq4m4"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p6yk"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgkfy"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p64p7"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b62qh"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkmj3"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq2ve"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb13u"]
+atlas = ExtResource("2_be1u1")
+region = Rect2(1152, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_74c84"]
 animations = [{
 "frames": [{
@@ -78,6 +119,46 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 11.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"run right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srtaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jojog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq4m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p6yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgkfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p64p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b62qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkmj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq2ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb13u")
+}],
+"loop": 1,
+"name": &"walk right",
+"speed": 11.0
 }]
 
 [node name="Mc" type="CharacterBody2D" unique_id=2000332201]
@@ -86,5 +167,4 @@ animations = [{
 position = Vector2(13, 28.000002)
 scale = Vector2(1.9765625, 1.7265625)
 sprite_frames = SubResource("SpriteFrames_74c84")
-animation = &"idle"
-frame_progress = 0.39333662
+animation = &"run right"
