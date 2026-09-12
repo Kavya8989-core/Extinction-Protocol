@@ -369,12 +369,10 @@ height = 52.126694
 script = ExtResource("1_4qllp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1692689915]
-position = Vector2(13, 28.000002)
+position = Vector2(351.99997, 205.99998)
 scale = Vector2(1.9765625, 1.7265625)
 sprite_frames = SubResource("SpriteFrames_74c84")
 animation = &"attack1 right"
-frame = 5
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=105349135]
 position = Vector2(1.0118575, 31.276016)
