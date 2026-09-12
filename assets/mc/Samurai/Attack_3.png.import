@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8r1bclybn1kx"
-path="res://.godot/imported/male_hero-jump.png-473c9db7cf034431176cf685ea26da75.ctex"
+uid="uid://b4stab6vv016l"
+path="res://.godot/imported/Attack_3.png-7da71488c01bd6213cc13556fd4f09c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mc/individual_sheets/male_hero-jump.png"
-dest_files=["res://.godot/imported/male_hero-jump.png-473c9db7cf034431176cf685ea26da75.ctex"]
+source_file="res://assets/mc/Samurai/Attack_3.png"
+dest_files=["res://.godot/imported/Attack_3.png-7da71488c01bd6213cc13556fd4f09c8.ctex"]
 
 [params]
 

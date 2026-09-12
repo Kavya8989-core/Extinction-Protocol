@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j0ueltl8h4xp"
-path="res://.godot/imported/male_hero-idle.png-9756dd33d47eded782afc1f58f596206.ctex"
+uid="uid://gicevi8gloc8"
+path="res://.godot/imported/Attack_1.png-14de5210e4e68b451133a5d4fea0c0de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mc/individual_sheets/male_hero-idle.png"
-dest_files=["res://.godot/imported/male_hero-idle.png-9756dd33d47eded782afc1f58f596206.ctex"]
+source_file="res://assets/mc/Samurai/Attack_1.png"
+dest_files=["res://.godot/imported/Attack_1.png-14de5210e4e68b451133a5d4fea0c0de.ctex"]
 
 [params]
 

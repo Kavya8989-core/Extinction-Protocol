@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbrmyo6nct68y"
-path="res://.godot/imported/male_hero-run.png-63c8a1b70b6b8470a17eac147d4916a4.ctex"
+uid="uid://ckx2hbpnr830k"
+path="res://.godot/imported/Run.png-9c5745df3fbb9c35a7979cd0fd4f2e46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mc/individual_sheets/male_hero-run.png"
-dest_files=["res://.godot/imported/male_hero-run.png-63c8a1b70b6b8470a17eac147d4916a4.ctex"]
+source_file="res://assets/mc/Samurai/Run.png"
+dest_files=["res://.godot/imported/Run.png-9c5745df3fbb9c35a7979cd0fd4f2e46.ctex"]
 
 [params]
 

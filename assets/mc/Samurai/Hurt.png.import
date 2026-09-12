@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bseucqeg4d7cc"
-path="res://.godot/imported/male_hero-fall_loop.png-d1ad36dedd78dbc58cc15cd8d834dd78.ctex"
+uid="uid://dmv2hu1dbcdo4"
+path="res://.godot/imported/Hurt.png-afa3a5009095c6a36920698410f09f04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mc/individual_sheets/male_hero-fall_loop.png"
-dest_files=["res://.godot/imported/male_hero-fall_loop.png-d1ad36dedd78dbc58cc15cd8d834dd78.ctex"]
+source_file="res://assets/mc/Samurai/Hurt.png"
+dest_files=["res://.godot/imported/Hurt.png-afa3a5009095c6a36920698410f09f04.ctex"]
 
 [params]
 
