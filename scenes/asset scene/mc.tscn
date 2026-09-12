@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c476ss5w1byoe"]
 
 [ext_resource type="Texture2D" uid="uid://uq6v5vnnhocr" path="res://assets/mc/individual_sheets/male_hero-combo_1_end.png" id="1_1yvj1"]
+[ext_resource type="Script" uid="uid://cpo4kpukpwn24" path="res://scenes/asset scene/mc.gd" id="1_4qllp"]
 [ext_resource type="Texture2D" uid="uid://j0ueltl8h4xp" path="res://assets/mc/individual_sheets/male_hero-idle.png" id="1_ki018"]
 [ext_resource type="Texture2D" uid="uid://d4nxdl4d2gp0b" path="res://assets/mc/individual_sheets/male_hero-combo_1.png" id="2_4qllp"]
 [ext_resource type="Texture2D" uid="uid://dkrwhlngrhtyk" path="res://assets/mc/individual_sheets/male_hero-walk.png" id="2_be1u1"]
@@ -376,11 +377,10 @@ animations = [{
 }]
 
 [node name="Mc" type="CharacterBody2D" unique_id=2000332201]
+script = ExtResource("1_4qllp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1692689915]
 position = Vector2(13, 28.000002)
 scale = Vector2(1.9765625, 1.7265625)
 sprite_frames = SubResource("SpriteFrames_74c84")
-animation = &"attack2 right"
-frame = 2
-frame_progress = 1.0
+animation = &"idle"
