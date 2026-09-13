@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @onready var animatiedsprite2d = $AnimatedSprite2D
-const SPEED = 300.0
+const walk_SPEED = 300.0
+const run_speed = 400
 const JUMP_VELOCITY = -400.0
 var is_attacking := false
 var is_jumping := false
@@ -16,9 +17,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	else:
 		if direction:
-			velocity.x = direction * SPEED
+			velocity.x = direction * walk_SPEED
+		elif Input.is_action_just_pressed("right"):
+			velocity.x = direction * run_speed
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, walk_SPEED)
 
 	move_and_slide()
 
@@ -47,5 +50,8 @@ func process_animation(direction: float) -> void:
 	elif direction < 0:
 		animatiedsprite2d.flip_h = true
 		animatiedsprite2d.play("walk right")
+	elif Input.is_action_just_pressed("right") and Input.is_action_just_pressed("run"):
+		animatiedsprite2d.play("run right")
 	else:
 		animatiedsprite2d.play("idle right")
+	
