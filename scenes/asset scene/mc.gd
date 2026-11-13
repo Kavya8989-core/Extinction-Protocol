@@ -12,13 +12,14 @@ enum player_stat {
 	WALK,
 	FALL
 }
+
 var current_stat = player_stat.IDLE
 func update_stat():
-	if Input.is_action_pressed("right") or Input.is_action_pressed("left"):
+	if Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left"):
 		current_stat = player_stat.WALK
-	if is_on_floor() and Input.is_action_pressed("jump"):
+	elif is_on_floor() and Input.is_action_just_pressed("jump"):
 		current_stat = player_stat.JUMP
-	if !is_on_floor():
+	elif !is_on_floor():
 		current_stat = player_stat.FALL
 
 func handle_walk(direction):
@@ -29,13 +30,17 @@ func handle_walk(direction):
 	velocity.x = walk_speed * direction.x
 	process_animation(direction)
 func manage_stat(delta):
+	var direction = Vector2.ZERO
 	match current_stat:
+		player_stat.IDLE:
+			velocity = Vector2.ZERO
 		player_stat.WALK:
-			var direction = Vector2.ZERO
+			
 			handle_walk(direction)
 		player_stat.JUMP:
 			handle_jump(delta)
 		player_stat.FALL:
+			current_stat = player_stat.IDLE
 			handle_fall(delta)
 		
 func _physics_process(delta: float) -> void:
@@ -44,12 +49,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 func handle_jump(delta):
 	velocity.y = -jump_velo
+	animatiedsprite2d.play("jump")
 func handle_fall(delta):
 	velocity.y += delta * gravity
 func process_animation(direction):
 	if direction.x > 0:
 		animatiedsprite2d.play("walk right")
 		animatiedsprite2d.flip_h = false
-	if direction.x < 0:
+	elif direction.x < 0:
 		animatiedsprite2d.flip_h = true
 		animatiedsprite2d.play("walk right")
+	
