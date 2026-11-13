@@ -2,7 +2,24 @@
 
 [ext_resource type="Script" uid="uid://cpo4kpukpwn24" path="res://scenes/asset scene/mc.gd" id="1_4qllp"]
 [ext_resource type="Texture2D" uid="uid://cdi60py8sj4jb" path="res://assets/mc/image0-removebg-preview.png" id="2_be1u1"]
+[ext_resource type="Texture2D" uid="uid://c6ahsql1jvlh4" path="res://assets/mc/883C80E6-E8AC-406C-AEB0-9CC0BA81A765.png" id="2_bkdj2"]
 [ext_resource type="Texture2D" uid="uid://csd2g2udx1dne" path="res://assets/mc/jump.png" id="2_p0xtj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaeii"]
+atlas = ExtResource("2_bkdj2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x1bg"]
+atlas = ExtResource("2_bkdj2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udvdn"]
+atlas = ExtResource("2_bkdj2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0b0k"]
+atlas = ExtResource("2_bkdj2")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jojog"]
 atlas = ExtResource("2_p0xtj")
@@ -88,6 +105,23 @@ region = Rect2(1152, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oaeii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x1bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udvdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0b0k")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jojog")
 }, {
 "duration": 1.0,
@@ -166,9 +200,9 @@ script = ExtResource("1_4qllp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=871027558]
 sprite_frames = SubResource("SpriteFrames_454ae")
-animation = &"jump"
-frame = 9
-frame_progress = 1.0
+animation = &"idle"
+frame = 2
+frame_progress = 0.252734
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=531376394]
