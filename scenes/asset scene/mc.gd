@@ -4,6 +4,7 @@ extends CharacterBody2D
 const walk_speed = 100
 const run_speed = 200
 const gravity = 980
+const jump_velo = 400
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
@@ -18,4 +19,6 @@ func _physics_process(delta: float) -> void:
 	velocity.x = walk_speed * direction.x
 	if !is_on_floor():
 		velocity.y += gravity * delta
+	if is_on_floor() and Input.is_action_pressed("jump"):
+		velocity.y = - jump_velo
 	move_and_slide()
