@@ -95,6 +95,6 @@ frame = 3
 frame_progress = 0.70920384
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=531376394]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=531376394]
 position = Vector2(62, 64)
 shape = SubResource("CapsuleShape2D_454ae")
