@@ -20,6 +20,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * walk_SPEED
 		elif Input.is_action_just_pressed("right"):
 			velocity.x = direction * run_speed
+			if Input.is_action_pressed("run"):
+				print("run")
 		else:
 			velocity.x = move_toward(velocity.x, 0, walk_SPEED)
 
@@ -50,8 +52,6 @@ func process_animation(direction: float) -> void:
 	elif direction < 0:
 		animatiedsprite2d.flip_h = true
 		animatiedsprite2d.play("walk right")
-	elif Input.is_action_just_pressed("right") and Input.is_action_just_pressed("run"):
-		animatiedsprite2d.play("run right")
 	else:
 		animatiedsprite2d.play("idle right")
 	

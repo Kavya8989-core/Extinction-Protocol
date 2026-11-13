@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5hy5c1ji0y2k"
-path="res://.godot/imported/Walk.png-a9125619468ce37d236e2d24c1388c2f.ctex"
+uid="uid://sai3nuany0l2"
+path="res://.godot/imported/IMG_2672-removebg-preview (1).png-ae6f33526b1bd674e5c59b1aca7b23df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mc/Samurai/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-a9125619468ce37d236e2d24c1388c2f.ctex"]
+source_file="res://assets/mc/IMG_2672-removebg-preview (1).png"
+dest_files=["res://.godot/imported/IMG_2672-removebg-preview (1).png-ae6f33526b1bd674e5c59b1aca7b23df.ctex"]
 
 [params]
 
