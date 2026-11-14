@@ -4,13 +4,15 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const gravity = 980
+const run_speed = 400
 
 
 enum mc_state{
 	IDLE,
 	WALK,
 	JUMP,
-	FALL
+	FALL,
+	RUN
 }
 var current_stat = mc_state.IDLE
 
@@ -44,10 +46,17 @@ func _physics_process(delta: float) -> void:
 		current_stat = mc_state.FALL
 	elif Input.is_action_pressed("right") or Input.is_action_pressed("left"):
 		current_stat = mc_state.WALK
+	elif Input.is_action_pressed("run right") or Input.is_action_pressed("run left"):
+		current_stat = mc_state.RUN
 	else:
 		current_stat = mc_state.IDLE
 	handle_stat(delta)
 	move_and_slide()
+func handle_run(direction):
+	if Input.is_action_pressed("run left"):
+		direction -= 2
+	elif Input.is_action_pressed("run right"):
+		direction += 2
 func handle_stat(delta):
 	var direction = Vector2.ZERO
 	match current_stat:
@@ -62,3 +71,5 @@ func handle_stat(delta):
 		mc_state.FALL:
 
 			handle_fall(delta)
+		mc_state.RUN:
+			handle_run(direction)
