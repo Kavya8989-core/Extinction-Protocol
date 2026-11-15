@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -450.0
 const gravity = 980
 const run_speed = 200
 var is_running = false
-
+# creating a state machine for different state
 enum mc_state{
 	IDLE,
 	WALK,
@@ -17,7 +17,7 @@ enum mc_state{
 var current_stat = mc_state.IDLE
 
 
-
+# handleing walk condition
 func handle_walk(direction):
 	if Input.is_action_pressed("left"):
 		mc.flip_h = true
@@ -30,14 +30,15 @@ func handle_walk(direction):
 		direction.x += 1
 	
 	velocity = direction * SPEED
-
+#handling jump condition
 func handle_jump():
 	mc.play("jump")
 	velocity.y = JUMP_VELOCITY
 	
-	
+# handling falling condition
 func handle_fall(delta):
 	velocity.y += gravity * delta
+# handling run 
 func handle_run(direction):
 	if Input.is_action_pressed("right"):
 		direction.x += 1
@@ -46,6 +47,7 @@ func handle_run(direction):
 	velocity = direction * run_speed
 
 func _physics_process(delta: float) -> void:
+	# assigning the state according to the input
 	if Input.is_key_pressed(KEY_SHIFT):
 		print("SHIFT PRESSED")
 
@@ -60,9 +62,11 @@ func _physics_process(delta: float) -> void:
 			current_stat = mc_state.WALK
 	else:
 		current_stat = mc_state.IDLE
-
+	# func calling and other stuff
 	handle_stat(delta)
 	move_and_slide()
+	
+# handling all the state and transfering to there func
 func handle_stat(delta):
 	var direction = Vector2.ZERO
 	match current_stat:
@@ -79,7 +83,3 @@ func handle_stat(delta):
 		mc_state.RUN:
 			print("worked")
 			handle_run(direction)
-func _input(event):
-	if event is InputEventKey:
-		print("Key: ", event.as_text())
-		print("Pressed: ", event.pressed)
