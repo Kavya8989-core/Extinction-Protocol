@@ -1,16 +1,18 @@
 extends CharacterBody2D
 
 @onready var mc = $AnimatedSprite2D
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 100
+const JUMP_VELOCITY = -450.0
 const gravity = 980
-
+const run_speed = 200
+var is_running = false
 
 enum mc_state{
 	IDLE,
 	WALK,
 	JUMP,
-	FALL
+	FALL,
+	RUN
 }
 var current_stat = mc_state.IDLE
 
@@ -36,14 +38,24 @@ func handle_jump():
 	
 func handle_fall(delta):
 	velocity.y += gravity * delta
+func handle_run(direction):
+	if Input.is_action_pressed("run right"):
+		direction.x += 1
+	elif Input.is_action_pressed("run left"):
+		direction.x -= 1
+	velocity = direction * run_speed
 
 func _physics_process(delta: float) -> void:
-	if is_on_floor() and Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("run left") or Input.is_action_pressed("run right"):
+		current_stat = mc_state.RUN
+		print("worked")
+	elif is_on_floor() and Input.is_action_pressed("jump"):
 		current_stat = mc_state.JUMP
 	elif !is_on_floor():
 		current_stat = mc_state.FALL
 	elif Input.is_action_pressed("right") or Input.is_action_pressed("left"):
 		current_stat = mc_state.WALK
+	
 	else:
 		current_stat = mc_state.IDLE
 	handle_stat(delta)
@@ -57,8 +69,11 @@ func handle_stat(delta):
 		mc_state.WALK:
 			handle_walk(direction)
 		mc_state.JUMP:
-			print("wo")
 			handle_jump()
 		mc_state.FALL:
 
 			handle_fall(delta)
+		mc_state.RUN:
+			print("worked")
+			mc.play("run")
+			handle_run(direction)
