@@ -30,7 +30,7 @@ func handle_walk(direction):
 	velocity = direction * SPEED
 
 func handle_jump():
-	print("worked")
+	mc.play("jump")
 	velocity.y = JUMP_VELOCITY
 	
 	
