@@ -1,8 +1,6 @@
-# Extinction-Protocol
-Extinction Engine is a 2D pixel-art action game made for Godot Wild Jam: Imminent Doom. A failed experiment creates a machine that endlessly spawns dinosaurs. Fight, dodge, and outrun a deadly predator as you race to destroy the spawner before the world is overrun.
-# 🦖 Extinction Engine
+# Extinction Engine 🦖
 
-**Extinction Engine** is a 2D pixel-art action game developed in **Godot** for the **Godot Wild Jam**, based on the theme **“Imminent Doom.”**
+**Extinction Engine** is a 2D pixel-art action game developed using **Godot Engine**. Enter a world where a failed scientific experiment has unleashed an endless dinosaur outbreak. Fight, dodge, and outrun deadly predators as you race to destroy the machine responsible before the world is overrun.
 
 ## 📖 Story
 
@@ -20,37 +18,37 @@ And something much bigger is coming after you.
 
 The only way to stop the approaching extinction is to reach the **Extinction Engine** and destroy it.
 
-## 🎮 What You Do
+## 🎮 Gameplay
 
-You play as the character trying to reach the source of the dinosaur outbreak.
+You play as a survivor trying to reach the source of the dinosaur outbreak.
 
-Throughout the journey you will:
+Throughout your journey, you will:
 
-* 🏃 Run through dangerous environments
-* 🦖 Fight and dodge different dinosaurs
-* 💥 Avoid environmental hazards and destruction
-* ⚔️ Survive enemies blocking your path
-* 🦖 Escape a massive dinosaur constantly chasing you
-* ⏳ Keep moving as the situation becomes increasingly dangerous
-* ⚙️ Reach and destroy the **Extinction Engine**
+- 🏃 Run through dangerous environments.
+- 🦖 Fight and dodge different dinosaurs.
+- 💥 Avoid environmental hazards and destruction.
+- ⚔️ Survive enemies blocking your path.
+- 🦖 Escape a massive dinosaur constantly chasing you.
+- ⏳ Keep moving as the situation becomes increasingly dangerous.
+- ⚙️ Reach and destroy the **Extinction Engine**.
 
 Stopping to fight may help clear your path, but staying in one place for too long allows the creature behind you to get closer.
 
 **Keep moving. Keep fighting. Don't let it catch you.**
 
-## ☠️ Imminent Doom
+## ☠️ The Threat
 
-The theme is represented by the constant threat surrounding the player.
+The world is slowly falling apart.
 
-The Extinction Engine continues creating dinosaurs while a powerful predator hunts you from behind. The longer you take, the closer the world gets to being completely overrun.
+The Extinction Engine continues producing dinosaurs while a powerful predator hunts you from behind. Every second brings you closer to being caught, and every delay gives the outbreak more time to spread.
 
 Your doom is always approaching.
 
 ## 🛠️ Built With
 
-* **Godot Engine**
-* **GDScript**
-* **2D Pixel Art**
+- **Godot Engine**
+- **GDScript**
+- **2D Pixel Art**
 
 ## 🎯 Objective
 
