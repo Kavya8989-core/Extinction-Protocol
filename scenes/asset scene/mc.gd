@@ -39,25 +39,28 @@ func handle_jump():
 func handle_fall(delta):
 	velocity.y += gravity * delta
 func handle_run(direction):
-	if Input.is_action_pressed("run right"):
+	if Input.is_action_pressed("right"):
 		direction.x += 1
-	elif Input.is_action_pressed("run left"):
+	if Input.is_action_pressed("left"):
 		direction.x -= 1
 	velocity = direction * run_speed
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("run left") or Input.is_action_pressed("run right"):
-		current_stat = mc_state.RUN
-		print("worked")
-	elif is_on_floor() and Input.is_action_pressed("jump"):
+	if Input.is_key_pressed(KEY_SHIFT):
+		print("SHIFT PRESSED")
+
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		current_stat = mc_state.JUMP
 	elif !is_on_floor():
 		current_stat = mc_state.FALL
-	elif Input.is_action_pressed("right") or Input.is_action_pressed("left"):
-		current_stat = mc_state.WALK
-	
+	elif Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		if Input.is_action_pressed("run"):
+			current_stat = mc_state.RUN
+		else:
+			current_stat = mc_state.WALK
 	else:
 		current_stat = mc_state.IDLE
+
 	handle_stat(delta)
 	move_and_slide()
 func handle_stat(delta):
@@ -75,5 +78,8 @@ func handle_stat(delta):
 			handle_fall(delta)
 		mc_state.RUN:
 			print("worked")
-			mc.play("run")
 			handle_run(direction)
+func _input(event):
+	if event is InputEventKey:
+		print("Key: ", event.as_text())
+		print("Pressed: ", event.pressed)
