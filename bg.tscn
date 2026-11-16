@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ctp4wwngxcfgk"]
+
+[ext_resource type="Texture2D" uid="uid://4hb5mnq1chwy" path="res://assets/terrani/4ADD1B15-3B27-4091-BDF8-4EB26CFB71FD.png" id="1_36ycx"]
+[ext_resource type="Texture2D" uid="uid://c22pfhvluhbi2" path="res://assets/terrani/6D16DE18-9745-473F-AACD-D78FE1ED137D.png" id="2_plmvg"]
+[ext_resource type="Texture2D" uid="uid://cms0vafbe2adn" path="res://assets/terrani/98835F48-4966-46CC-A8A2-2796981B7791.png" id="3_7sudn"]
+[ext_resource type="Texture2D" uid="uid://m1u5hprue5yj" path="res://assets/terrani/7FAF8CDF-DF5B-4DC3-889E-F8D7E8EEEB36.png" id="4_b16yh"]
+[ext_resource type="Texture2D" uid="uid://bbaohfhjaa8o1" path="res://assets/terrani/9A841477-9E27-49D1-831A-B7FC47CD5C12.png" id="5_twoho"]
+
+[node name="background" type="Node2D" unique_id=609845646]
+
+[node name="sun" type="Parallax2D" parent="." unique_id=1372867459]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="sun" unique_id=1467002724]
+position = Vector2(0, -7)
+texture = ExtResource("1_36ycx")
+centered = false
+
+[node name="clouds" type="Parallax2D" parent="." unique_id=799413346]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="clouds" unique_id=340527223]
+position = Vector2(-3, 3)
+texture = ExtResource("2_plmvg")
+centered = false
+
+[node name="montains" type="Parallax2D" parent="." unique_id=1828953888]
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="montains" unique_id=1105676054]
+position = Vector2(1913, 780)
+texture = ExtResource("3_7sudn")
+
+[node name="building" type="Parallax2D" parent="." unique_id=1825052783]
+scroll_scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="building" unique_id=1182285312]
+position = Vector2(1920, 801)
+texture = ExtResource("4_b16yh")
+
+[node name="trees" type="Parallax2D" parent="." unique_id=1997880878]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="trees" unique_id=1839377188]
+position = Vector2(-21, 252)
+texture = ExtResource("5_twoho")
+centered = false
