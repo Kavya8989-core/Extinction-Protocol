@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var walk_sound :  AudioStreamPlayer2D = $sfx/walk
 @onready var walk_timer = $sfx/walk/Timer
 @onready var mc = $AnimatedSprite2D
-const SPEED = 100
+const SPEED = 200
 const JUMP_VELOCITY = -300.0
 const gravity = 980
 const run_speed = 200
@@ -23,11 +23,11 @@ var current_stat = mc_state.IDLE
 func handle_walk(direction):
 	if Input.is_action_pressed("left"):
 		mc.flip_h = true
-		mc.play("walk right")
+		mc.play("run")
 		direction.x -= 1
 		
 	elif Input.is_action_pressed("right"):
-		mc.play("walk right")
+		mc.play("run")
 		mc.flip_h = false
 		direction.x += 1
 	
@@ -96,7 +96,7 @@ func handle_stat(delta):
 			handle_slide()
 
 func _ready() -> void:
-	pass
+	walk_sound.attenuation = 0
 
 
 func _on_timer_timeout() -> void:
