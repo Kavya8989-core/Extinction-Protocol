@@ -27,17 +27,9 @@ region = Rect2(384, 0, 128, 128)
 atlas = ExtResource("2_p0xtj")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oq4m4"]
-atlas = ExtResource("2_p0xtj")
-region = Rect2(128, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8p6yk"]
 atlas = ExtResource("2_p0xtj")
 region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qgkfy"]
-atlas = ExtResource("2_p0xtj")
-region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p64p7"]
 atlas = ExtResource("2_p0xtj")
@@ -54,10 +46,6 @@ region = Rect2(768, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq2ve"]
 atlas = ExtResource("2_p0xtj")
 region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jb13u"]
-atlas = ExtResource("2_p0xtj")
-region = Rect2(1024, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35um8"]
 atlas = ExtResource("2_p0xtj")
@@ -219,13 +207,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jojog")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oq4m4")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_8p6yk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qgkfy")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p64p7")
@@ -240,9 +222,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_vq2ve")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jb13u")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_35um8")
 }, {
 "duration": 1.0,
@@ -250,7 +229,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"jump",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -377,8 +356,8 @@ script = ExtResource("1_4qllp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=871027558]
 modulate = Color(0.3328807, 0.33288068, 0.33288068, 1)
 sprite_frames = SubResource("SpriteFrames_454ae")
-animation = &"slide"
-frame = 10
+animation = &"jump"
+frame = 7
 frame_progress = 1.0
 centered = false
 
