@@ -15,6 +15,3 @@ position = Vector2(-414, -125)
 
 [node name="Mc" parent="." unique_id=2000332201 instance=ExtResource("2_h2yge")]
 position = Vector2(-27, 473)
-
-[node name="Camera2D" type="Camera2D" parent="Mc" unique_id=283672104]
-position = Vector2(273, -142)
