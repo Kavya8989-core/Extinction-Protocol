@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://csd2g2udx1dne" path="res://assets/mc/jump.png" id="2_p0xtj"]
 [ext_resource type="Texture2D" uid="uid://7fm3dvo7kjeq" path="res://assets/mc/run.png" id="4_7not8"]
 [ext_resource type="Texture2D" uid="uid://btwrw1hnqvnwk" path="res://assets/mc/Sliide.png" id="5_jlmjl"]
+[ext_resource type="AudioStream" uid="uid://d3afh71rmg7iq" path="res://assets/sfx/walk_fDdDDOdf.wav" id="7_1yvj1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oaeii"]
 atlas = ExtResource("2_bkdj2")
@@ -364,3 +365,15 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=531376394]
 position = Vector2(62, 64)
 shape = SubResource("CapsuleShape2D_454ae")
+
+[node name="sfx" type="Node" parent="." unique_id=1275126616]
+
+[node name="walk" type="AudioStreamPlayer2D" parent="sfx" unique_id=192438803]
+stream = ExtResource("7_1yvj1")
+volume_db = -6.0
+
+[node name="Timer" type="Timer" parent="sfx" unique_id=1851401278]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="sfx/Timer" to="." method="_on_timer_timeout"]
