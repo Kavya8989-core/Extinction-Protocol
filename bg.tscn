@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://m1u5hprue5yj" path="res://assets/terrani/7FAF8CDF-DF5B-4DC3-889E-F8D7E8EEEB36.png" id="4_b16yh"]
 [ext_resource type="Texture2D" uid="uid://bbaohfhjaa8o1" path="res://assets/terrani/9A841477-9E27-49D1-831A-B7FC47CD5C12.png" id="5_twoho"]
 
-[node name="background" type="Node2D" unique_id=609845646]
+[node name="background" type="ParallaxBackground" unique_id=1993202153]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1467002724]
 position = Vector2(0, -7)
@@ -14,7 +14,9 @@ texture = ExtResource("1_36ycx")
 centered = false
 
 [node name="clouds" type="Parallax2D" parent="." unique_id=799413346]
-scroll_scale = Vector2(0.2, 0.2)
+scroll_scale = Vector2(0, 1)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="clouds" unique_id=340527223]
 position = Vector2(-3, 3)
@@ -22,21 +24,27 @@ texture = ExtResource("2_plmvg")
 centered = false
 
 [node name="montains" type="Parallax2D" parent="." unique_id=1828953888]
-scroll_scale = Vector2(0.4, 0.4)
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="montains" unique_id=1105676054]
 position = Vector2(1913, 780)
 texture = ExtResource("3_7sudn")
 
 [node name="building" type="Parallax2D" parent="." unique_id=1825052783]
-scroll_scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="building" unique_id=1182285312]
 position = Vector2(1920, 801)
 texture = ExtResource("4_b16yh")
 
 [node name="trees" type="Parallax2D" parent="." unique_id=1997880878]
-scroll_scale = Vector2(0.8, 0.8)
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="trees" unique_id=1839377188]
 position = Vector2(-21, 252)

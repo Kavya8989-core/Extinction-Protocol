@@ -50,6 +50,7 @@ func handle_slide():
 	mc.play("slide")
 
 func _physics_process(delta: float) -> void:
+	print("MC: ", global_position.x, " CAMERA: ", $Camera2D.get_screen_center_position().x)
 	# assigning the state according to the input
 	if Input.is_key_pressed(KEY_SHIFT):
 		print("SHIFT PRESSED")
