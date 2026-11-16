@@ -1,17 +1,72 @@
-[gd_scene format=3 uid="uid://bbfcnn4na2pgf"]
+[gd_scene format=3 uid="uid://ctp4wwngxcfgk"]
 
-[ext_resource type="PackedScene" uid="uid://ctp4wwngxcfgk" path="res://bg.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c8mg2yrp6b6qc" path="res://ground.tscn" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://4hb5mnq1chwy" path="res://assets/terrani/4ADD1B15-3B27-4091-BDF8-4EB26CFB71FD.png" id="2_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c476ss5w1byoe" path="res://scenes/asset scene/mc.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://c22pfhvluhbi2" path="res://assets/terrani/6D16DE18-9745-473F-AACD-D78FE1ED137D.png" id="3_kek77"]
+[ext_resource type="Texture2D" uid="uid://cms0vafbe2adn" path="res://assets/terrani/98835F48-4966-46CC-A8A2-2796981B7791.png" id="4_4c57u"]
+[ext_resource type="Texture2D" uid="uid://m1u5hprue5yj" path="res://assets/terrani/7FAF8CDF-DF5B-4DC3-889E-F8D7E8EEEB36.png" id="5_efxa6"]
+[ext_resource type="Texture2D" uid="uid://bbaohfhjaa8o1" path="res://assets/terrani/9A841477-9E27-49D1-831A-B7FC47CD5C12.png" id="6_dg77c"]
 
-[node name="Node2D" type="Node2D" unique_id=221224108]
+[node name="background" type="Node" unique_id=2116319789]
 
-[node name="background" parent="." unique_id=609845646 instance=ExtResource("1_h2yge")]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=118046453]
+scroll_scale = Vector2(0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1467002724]
+position = Vector2(-10, 0)
 scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+texture = ExtResource("2_5vw27")
+centered = false
+
+[node name="clouds" type="Parallax2D" parent="." unique_id=799413346]
+scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="clouds" unique_id=340527223]
+position = Vector2(-3, 3)
+texture = ExtResource("3_kek77")
+centered = false
+
+[node name="montains" type="Parallax2D" parent="." unique_id=1828953888]
+scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="montains" unique_id=1105676054]
+position = Vector2(1913, 780)
+texture = ExtResource("4_4c57u")
+
+[node name="building" type="Parallax2D" parent="." unique_id=1825052783]
+scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="building" unique_id=1182285312]
+position = Vector2(1920, 801)
+texture = ExtResource("5_efxa6")
+
+[node name="trees" type="Parallax2D" parent="." unique_id=1997880878]
+scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="trees" unique_id=1839377188]
+position = Vector2(-21, 252)
+texture = ExtResource("6_dg77c")
+centered = false
 
 [node name="ground" parent="." unique_id=149868486 instance=ExtResource("2_1bvp3")]
-position = Vector2(-414, -125)
+position = Vector2(-391, -135)
 
 [node name="Mc" parent="." unique_id=2000332201 instance=ExtResource("2_h2yge")]
-position = Vector2(-27, 473)
+position = Vector2(47, 462)
+
+[node name="Camera2D2" type="Camera2D" parent="Mc" unique_id=12312776]
+position = Vector2(545, -152)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
