@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bbfcnn4na2pgf"]
+
+[ext_resource type="PackedScene" uid="uid://ctp4wwngxcfgk" path="res://bg.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c8mg2yrp6b6qc" path="res://ground.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c476ss5w1byoe" path="res://scenes/asset scene/mc.tscn" id="2_h2yge"]
+
+[node name="Node2D" type="Node2D" unique_id=221224108]
+
+[node name="background" parent="." unique_id=609845646 instance=ExtResource("1_h2yge")]
+position = Vector2(-3, 10)
+scale = Vector2(0.5, 0.5)
+
+[node name="ground" parent="." unique_id=149868486 instance=ExtResource("2_1bvp3")]
+position = Vector2(-3, -142)
+
+[node name="Mc" parent="." unique_id=2000332201 instance=ExtResource("2_h2yge")]
+position = Vector2(-27, 473)
+
+[node name="Camera2D" type="Camera2D" parent="Mc" unique_id=283672104]
+position = Vector2(598, -135)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

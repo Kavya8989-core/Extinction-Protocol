@@ -375,6 +375,7 @@ height = 118.0
 script = ExtResource("1_4qllp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=871027558]
+modulate = Color(0.3328807, 0.33288068, 0.33288068, 1)
 sprite_frames = SubResource("SpriteFrames_454ae")
 animation = &"slide"
 frame = 10
