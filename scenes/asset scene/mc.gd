@@ -12,7 +12,8 @@ enum mc_state{
 	WALK,
 	JUMP,
 	FALL,
-	RUN
+	RUN,
+	SLIDE
 }
 var current_stat = mc_state.IDLE
 
@@ -45,6 +46,8 @@ func handle_run(direction):
 	if Input.is_action_pressed("left"):
 		direction.x -= 1
 	velocity = direction * run_speed
+func handle_slide():
+	mc.play("slide")
 
 func _physics_process(delta: float) -> void:
 	# assigning the state according to the input
@@ -75,6 +78,9 @@ func handle_stat(delta):
 			mc.play("idle")
 		mc_state.WALK:
 			handle_walk(direction)
+			if Input.is_action_pressed("slide"):
+				print("works")
+				handle_slide()
 		mc_state.JUMP:
 			handle_jump()
 		mc_state.FALL:
@@ -83,3 +89,6 @@ func handle_stat(delta):
 		mc_state.RUN:
 			print("worked")
 			handle_run(direction)
+		mc_state.SLIDE:
+			print("working")
+			handle_slide()
