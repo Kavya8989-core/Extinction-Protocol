@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var walk_sound :  AudioStreamPlayer2D = $sfx/walk
 @onready var walk_timer = $sfx/walk/Timer
 @onready var mc = $AnimatedSprite2D
-const SPEED = 200
+const SPEED = 250
 const JUMP_VELOCITY = -300.0
 const gravity = 980
 const run_speed = 200
@@ -100,6 +100,5 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	print(mc_state)
 	if current_stat == mc_state.WALK:
 		walk_sound.play()
