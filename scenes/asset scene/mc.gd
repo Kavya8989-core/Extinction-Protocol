@@ -2,6 +2,10 @@ extends CharacterBody2D
 @onready var walk_sound :  AudioStreamPlayer2D = $sfx/walk
 @onready var walk_timer = $sfx/walk/Timer
 @onready var mc = $AnimatedSprite2D
+@onready var idle_col = $"CollisionShape2D(idle)"
+@onready var run_col = $"CollisionPolygon2D(run)"
+@onready var slide_col = $"CollisionPolygon2D(slide)"
+
 const SPEED = 250
 const JUMP_VELOCITY = -300.0
 const gravity = 980
@@ -21,6 +25,7 @@ var current_stat = mc_state.IDLE
 
 # handleing walk condition
 func handle_walk(direction):
+	run_col.disabled = false
 	if Input.is_action_pressed("left"):
 		mc.flip_h = true
 		mc.play("run")
@@ -34,27 +39,29 @@ func handle_walk(direction):
 	velocity = direction * SPEED
 #handling jump condition
 func handle_jump():
+	run_col.disabled = false
 	mc.play("jump")
 	velocity.y = JUMP_VELOCITY
 	
 # handling falling condition
 func handle_fall(delta):
+	run_col.disabled = false
 	velocity.y += gravity * delta
 # handling run 
 func handle_run(direction):
+	run_col.disabled = false
 	if Input.is_action_pressed("right"):
 		direction.x += 1
 	if Input.is_action_pressed("left"):
 		direction.x -= 1
 	velocity = direction * run_speed
 func handle_slide():
+	slide_col.disabled = false
 	mc.play("slide")
 
 func _physics_process(delta: float) -> void:
 
 	# assigning the state according to the input
-	if Input.is_key_pressed(KEY_SHIFT):
-		print("SHIFT PRESSED")
 
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		current_stat = mc_state.JUMP
@@ -63,6 +70,8 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		if Input.is_action_pressed("run"):
 			current_stat = mc_state.RUN
+		elif Input.is_action_pressed("slide"):
+			current_stat = mc_state.SLIDE
 		else:
 			current_stat = mc_state.WALK
 	else:
@@ -80,9 +89,6 @@ func handle_stat(delta):
 			mc.play("idle")
 		mc_state.WALK:
 			handle_walk(direction)
-			if Input.is_action_pressed("slide"):
-				print("works")
-				handle_slide()
 		mc_state.JUMP:
 			handle_jump()
 		mc_state.FALL:
