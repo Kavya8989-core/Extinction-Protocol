@@ -1,12 +1,49 @@
 [gd_scene format=3 uid="uid://c476ss5w1byoe"]
 
-[ext_resource type="Script" uid="uid://cpo4kpukpwn24" path="res://scenes/asset scene/mc.gd" id="1_4qllp"]
+[ext_resource type="Script" uid="uid://cpo4kpukpwn24" path="res://scenes/scripts/mc.gd" id="1_4qllp"]
+[ext_resource type="Texture2D" uid="uid://c48ibouecv3oc" path="res://assets/mc/hanging.png" id="2_4qllp"]
 [ext_resource type="Texture2D" uid="uid://cdi60py8sj4jb" path="res://assets/mc/image0-removebg-preview.png" id="2_be1u1"]
 [ext_resource type="Texture2D" uid="uid://crvq1l67nkjl6" path="res://assets/mc/idle.png" id="2_bkdj2"]
 [ext_resource type="Texture2D" uid="uid://csd2g2udx1dne" path="res://assets/mc/jump.png" id="2_p0xtj"]
 [ext_resource type="Texture2D" uid="uid://7fm3dvo7kjeq" path="res://assets/mc/run.png" id="4_7not8"]
 [ext_resource type="Texture2D" uid="uid://btwrw1hnqvnwk" path="res://assets/mc/Sliide.png" id="5_jlmjl"]
 [ext_resource type="AudioStream" uid="uid://d3afh71rmg7iq" path="res://assets/sfx/walk_fDdDDOdf.wav" id="7_1yvj1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq4m4"]
+atlas = ExtResource("2_4qllp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgkfy"]
+atlas = ExtResource("2_4qllp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb13u"]
+atlas = ExtResource("2_4qllp")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4mgn"]
+atlas = ExtResource("2_4qllp")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i7gl"]
+atlas = ExtResource("2_4qllp")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k237h"]
+atlas = ExtResource("2_4qllp")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imrjf"]
+atlas = ExtResource("2_4qllp")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbyhx"]
+atlas = ExtResource("2_4qllp")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkxnb"]
+atlas = ExtResource("2_4qllp")
+region = Rect2(1024, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oaeii"]
 atlas = ExtResource("2_bkdj2")
@@ -188,6 +225,38 @@ region = Rect2(1152, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oq4m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgkfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb13u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4mgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i7gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k237h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imrjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbyhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkxnb")
+}],
+"loop": 1,
+"name": &"hanging",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_oaeii")
 }, {
 "duration": 1.0,
@@ -355,6 +424,9 @@ height = 114.0
 radius = 23.0
 height = 60.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sdby"]
+size = Vector2(71.75, 131)
+
 [node name="Mc" type="CharacterBody2D" unique_id=2000332201]
 script = ExtResource("1_4qllp")
 
@@ -362,9 +434,7 @@ script = ExtResource("1_4qllp")
 modulate = Color(0.28995052, 0.14098561, 0.06978745, 1)
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_454ae")
-animation = &"slide"
-frame = 10
-frame_progress = 1.0
+animation = &"idle"
 centered = false
 metadata/_edit_lock_ = true
 
@@ -396,4 +466,13 @@ attenuation = 0.019915035
 wait_time = 0.5
 autostart = true
 
+[node name="obj" type="Area2D" parent="." unique_id=1394114957]
+position = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obj" unique_id=2052782670]
+position = Vector2(61, 64)
+shape = SubResource("RectangleShape2D_1sdby")
+
 [connection signal="timeout" from="sfx/Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="obj" to="." method="_on_obj_body_entered"]
+[connection signal="body_exited" from="obj" to="." method="_on_obj_body_exited"]

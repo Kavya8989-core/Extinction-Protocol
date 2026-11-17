@@ -109,3 +109,11 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	if current_stat == mc_state.WALK and is_on_floor():
 		walk_sound.play()
+
+
+func _on_obj_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_obj_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
