@@ -97,8 +97,9 @@ func handle_stat(delta):
 
 func _ready() -> void:
 	walk_sound.attenuation = 0
+	
 
 
 func _on_timer_timeout() -> void:
-	if current_stat == mc_state.WALK:
+	if current_stat == mc_state.WALK and is_on_floor():
 		walk_sound.play()
