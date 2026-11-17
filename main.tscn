@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cms0vafbe2adn" path="res://assets/terrani/98835F48-4966-46CC-A8A2-2796981B7791.png" id="4_4c57u"]
 [ext_resource type="Texture2D" uid="uid://m1u5hprue5yj" path="res://assets/terrani/7FAF8CDF-DF5B-4DC3-889E-F8D7E8EEEB36.png" id="5_efxa6"]
 [ext_resource type="Texture2D" uid="uid://bbaohfhjaa8o1" path="res://assets/terrani/9A841477-9E27-49D1-831A-B7FC47CD5C12.png" id="6_dg77c"]
+[ext_resource type="Texture2D" uid="uid://ckqe0oef2ai81" path="res://assets/terrani/grass.png" id="8_5vw27"]
 
 [node name="background" type="Node" unique_id=2116319789]
 
@@ -74,3 +75,10 @@ limit_right = 10000114
 limit_bottom = 9999990
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1969401306]
+position = Vector2(-644, -379)
+texture = ExtResource("8_5vw27")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2701.4678, 1080)
