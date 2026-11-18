@@ -5,12 +5,12 @@ extends CharacterBody2D
 @onready var idle_col = $"CollisionShape2D(idle)"
 @onready var run_col = $"CollisionPolygon2D(run)"
 @onready var slide_col = $"CollisionPolygon2D(slide)"
-
 const SPEED = 250
 const JUMP_VELOCITY = -300.0
 const gravity = 980
 const run_speed = 200
 var is_running = false
+var can_hang = false
 # creating a state machine for different state
 enum mc_state{
 	IDLE,
@@ -18,7 +18,8 @@ enum mc_state{
 	JUMP,
 	FALL,
 	RUN,
-	SLIDE
+	SLIDE,
+	CLIMB
 }
 var current_stat = mc_state.IDLE
 
@@ -58,6 +59,8 @@ func handle_run(direction):
 func handle_slide():
 	slide_col.disabled = false
 	mc.play("slide")
+func climb():
+	pass
 
 func _physics_process(delta: float) -> void:
 
@@ -112,8 +115,11 @@ func _on_timer_timeout() -> void:
 
 
 func _on_obj_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	can_hang = true
 
 
 func _on_obj_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if is_on_floor():
+		can_hang = true
+	else:
+		can_hang = false
