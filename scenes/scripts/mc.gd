@@ -9,7 +9,7 @@ const SPEED = 250
 const JUMP_VELOCITY = -300.0
 const gravity = 980
 const run_speed = 200
-var is_running = false
+var last_direction = ""
 var can_hang = false
 # creating a state machine for different state
 enum mc_state{
@@ -28,11 +28,13 @@ var current_stat = mc_state.IDLE
 func handle_walk(direction):
 	run_col.disabled = false
 	if Input.is_action_pressed("left"):
+		last_direction = "left"
 		mc.flip_h = true
 		mc.play("run")
 		direction.x -= 1
 		
 	elif Input.is_action_pressed("right"):
+		last_direction = "right"
 		mc.play("run")
 		mc.flip_h = false
 		direction.x += 1
@@ -59,9 +61,12 @@ func handle_run(direction):
 func handle_slide():
 	slide_col.disabled = false
 	mc.play("slide")
-func climb():
-	pass
 
+func handle_climb():
+	if last_direction == "right":
+		print("working")
+		mc.play_backwards("climbing")
+		mc.flip_h = true
 func _physics_process(delta: float) -> void:
 
 	# assigning the state according to the input
@@ -71,12 +76,11 @@ func _physics_process(delta: float) -> void:
 	elif !is_on_floor():
 		current_stat = mc_state.FALL
 	elif Input.is_action_pressed("left") or Input.is_action_pressed("right"):
-		if Input.is_action_pressed("run"):
-			current_stat = mc_state.RUN
-		elif Input.is_action_pressed("slide"):
+		if Input.is_action_pressed("slide"):
 			current_stat = mc_state.SLIDE
-		else:
-			current_stat = mc_state.WALK
+		current_stat = mc_state.WALK
+	elif can_hang and Input.is_action_pressed("climbing up"):
+		current_stat = mc_state.CLIMB
 	else:
 		current_stat = mc_state.IDLE
 	# func calling and other stuff
@@ -103,6 +107,8 @@ func handle_stat(delta):
 		mc_state.SLIDE:
 			print("working")
 			handle_slide()
+		mc_state.CLIMB:
+			handle_climb()
 
 func _ready() -> void:
 	walk_sound.attenuation = 0
@@ -121,5 +127,6 @@ func _on_obj_body_entered(body: Node2D) -> void:
 func _on_obj_body_exited(body: Node2D) -> void:
 	if is_on_floor():
 		can_hang = true
+		print("can hang")
 	else:
 		can_hang = false
