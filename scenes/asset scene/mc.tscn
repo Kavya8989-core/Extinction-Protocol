@@ -567,14 +567,23 @@ attenuation = 0.019915035
 wait_time = 0.5
 autostart = true
 
-[node name="obj" type="Area2D" parent="." unique_id=1394114957]
+[node name="obj (front bottom)" type="Area2D" parent="." unique_id=1394114957]
 position = Vector2(2, 2)
 
-[node name="CollisionShape2D (front)" type="CollisionShape2D" parent="obj" unique_id=2052782670]
+[node name="CollisionShape2D (front)" type="CollisionShape2D" parent="obj (front bottom)" unique_id=2052782670]
 position = Vector2(99.5, 128.25)
 shape = SubResource("RectangleShape2D_1sdby")
 metadata/_edit_lock_ = true
 
+[node name="obj (front bottom)2" type="Area2D" parent="." unique_id=543310688]
+position = Vector2(2, 2)
+
+[node name="CollisionShape2D (front)" type="CollisionShape2D" parent="obj (front bottom)2" unique_id=1353752493]
+position = Vector2(18, 128)
+shape = SubResource("RectangleShape2D_1sdby")
+
 [connection signal="timeout" from="sfx/Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="obj" to="." method="_on_obj_body_entered"]
-[connection signal="body_exited" from="obj" to="." method="_on_obj_body_exited"]
+[connection signal="body_entered" from="obj (front bottom)" to="." method="_on_obj_body_entered"]
+[connection signal="body_exited" from="obj (front bottom)" to="." method="_on_obj_body_exited"]
+[connection signal="body_entered" from="obj (front bottom)2" to="." method="_on_obj_front_bottom_2_body_entered"]
+[connection signal="body_exited" from="obj (front bottom)2" to="." method="_on_obj_front_bottom_2_body_exited"]

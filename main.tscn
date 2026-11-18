@@ -15,10 +15,11 @@
 scroll_scale = Vector2(0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1467002724]
-position = Vector2(-10, 0)
+position = Vector2(1, 7)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_5vw27")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="clouds" type="Parallax2D" parent="." unique_id=799413346]
 scale = Vector2(0.5, 0.5)
@@ -29,6 +30,7 @@ repeat_size = Vector2(3840, 0)
 position = Vector2(-3, 3)
 texture = ExtResource("3_kek77")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="montains" type="Parallax2D" parent="." unique_id=1828953888]
 scale = Vector2(0.5, 0.5)
@@ -39,6 +41,7 @@ repeat_times = 2
 [node name="Sprite2D" type="Sprite2D" parent="montains" unique_id=1105676054]
 position = Vector2(1913, 780)
 texture = ExtResource("4_4c57u")
+metadata/_edit_lock_ = true
 
 [node name="building" type="Parallax2D" parent="." unique_id=1825052783]
 scale = Vector2(0.5, 0.5)
@@ -49,6 +52,7 @@ repeat_times = 2
 [node name="Sprite2D" type="Sprite2D" parent="building" unique_id=1182285312]
 position = Vector2(1920, 801)
 texture = ExtResource("5_efxa6")
+metadata/_edit_lock_ = true
 
 [node name="trees" type="Parallax2D" parent="." unique_id=1997880878]
 scale = Vector2(0.5, 0.5)
@@ -60,6 +64,7 @@ repeat_times = 2
 position = Vector2(-21, 252)
 texture = ExtResource("6_dg77c")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="ground" parent="." unique_id=149868486 instance=ExtResource("2_1bvp3")]
 position = Vector2(-391, -135)
@@ -77,8 +82,8 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1969401306]
-position = Vector2(-644, -379)
+position = Vector2(-397, -379)
 texture = ExtResource("8_5vw27")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 2701.4678, 1080)
+region_rect = Rect2(-21.84285, 0, 2460.226, 1080)

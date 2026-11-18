@@ -67,6 +67,9 @@ func handle_climb():
 		print("working")
 		mc.play_backwards("climbing")
 		mc.flip_h = true
+	elif last_direction == "left":
+		mc.flip_h = false
+		mc.play_backwards("climbing")
 func _physics_process(delta: float) -> void:
 
 	# assigning the state according to the input
@@ -125,6 +128,18 @@ func _on_obj_body_entered(body: Node2D) -> void:
 
 
 func _on_obj_body_exited(body: Node2D) -> void:
+	if is_on_floor():
+		can_hang = true
+		print("can hang")
+	else:
+		can_hang = false
+
+
+func _on_obj_front_bottom_2_body_entered(body: Node2D) -> void:
+	can_hang = false
+
+
+func _on_obj_front_bottom_2_body_exited(body: Node2D) -> void:
 	if is_on_floor():
 		can_hang = true
 		print("can hang")
