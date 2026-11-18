@@ -10,7 +10,7 @@ const JUMP_VELOCITY = -300.0
 const gravity = 980
 const run_speed = 200
 var last_direction = ""
-var can_hang = false
+var can_descend = false
 # creating a state machine for different state
 enum mc_state{
 	IDLE,
@@ -63,13 +63,14 @@ func handle_slide():
 	mc.play("slide")
 
 func handle_climb():
-	if last_direction == "right":
+	if Input.is_action_pressed("right"):
 		print("working")
 		mc.play_backwards("climbing")
 		mc.flip_h = true
-	elif last_direction == "left":
+	elif Input.is_action_pressed("left"):
 		mc.flip_h = false
 		mc.play_backwards("climbing")
+	velocity.x = 0
 func _physics_process(delta: float) -> void:
 
 	# assigning the state according to the input
@@ -81,9 +82,10 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		if Input.is_action_pressed("slide"):
 			current_stat = mc_state.SLIDE
-		current_stat = mc_state.WALK
-	elif can_hang and Input.is_action_pressed("climbing up"):
-		current_stat = mc_state.CLIMB
+		elif can_descend:
+			current_stat = mc_state.CLIMB
+		else:
+			current_stat = mc_state.WALK
 	else:
 		current_stat = mc_state.IDLE
 	# func calling and other stuff
@@ -124,24 +126,24 @@ func _on_timer_timeout() -> void:
 
 
 func _on_obj_body_entered(body: Node2D) -> void:
-	can_hang = true
+	can_descend = true
 
 
 func _on_obj_body_exited(body: Node2D) -> void:
 	if is_on_floor():
-		can_hang = true
+		can_descend = true
 		print("can hang")
 	else:
-		can_hang = false
+		can_descend = false
 
 
 func _on_obj_front_bottom_2_body_entered(body: Node2D) -> void:
-	can_hang = false
+	can_descend = false
 
 
 func _on_obj_front_bottom_2_body_exited(body: Node2D) -> void:
 	if is_on_floor():
-		can_hang = true
+		can_descend = true
 		print("can hang")
 	else:
-		can_hang = false
+		can_descend = false
