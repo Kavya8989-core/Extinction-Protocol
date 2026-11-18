@@ -11,6 +11,7 @@ const gravity = 980
 const run_speed = 200
 var last_direction = ""
 var can_descend = false
+var current_gravity = gravity
 # creating a state machine for different state
 enum mc_state{
 	IDLE,
@@ -48,8 +49,9 @@ func handle_jump():
 	
 # handling falling condition
 func handle_fall(delta):
-	run_col.disabled = false
-	velocity.y += gravity * delta
+	if not can_descend:
+		run_col.disabled = false
+		velocity.y += current_gravity * delta
 # handling run 
 func handle_run(direction):
 	run_col.disabled = false
@@ -64,20 +66,21 @@ func handle_slide():
 
 func handle_climb():
 	if Input.is_action_pressed("right"):
-		print("working")
 		mc.play_backwards("climbing")
 		mc.flip_h = true
 	elif Input.is_action_pressed("left"):
 		mc.flip_h = false
 		mc.play_backwards("climbing")
-	velocity.x = 0
+	global_position.y = global_position.y + 30.5
+	current_gravity = 0
+	velocity = Vector2.ZERO
 func _physics_process(delta: float) -> void:
 
 	# assigning the state according to the input
 
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		current_stat = mc_state.JUMP
-	elif !is_on_floor():
+	elif !is_on_floor() and not can_descend:
 		current_stat = mc_state.FALL
 	elif Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		if Input.is_action_pressed("slide"):
