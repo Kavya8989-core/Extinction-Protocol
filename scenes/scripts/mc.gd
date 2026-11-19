@@ -4,13 +4,16 @@ extends CharacterBody2D
 @onready var mc = $AnimatedSprite2D
 @onready var idle_col: CollisionShape2D = $CollisionShape2D
 @onready var jump_col_: CollisionShape2D = $"CollisionShape2D(jump)"
+@onready var wall_detect: RayCast2D = $"wall detect"
+
+
 
 const SPEED = 250
 const JUMP_VELOCITY = -300.0
 const gravity = 980
 const run_speed = 200
 var last_direction = ""
-var can_descend = false
+var on_ledge = false
 var current_gravity = gravity
 # creating a state machine for different state
 enum mc_state{
@@ -48,9 +51,10 @@ func handle_jump():
 	mc.play("jump")
 	velocity.y = JUMP_VELOCITY
 	
+	
 # handling falling condition
 func handle_fall(delta):
-	if not can_descend:
+	if not on_ledge:
 
 		velocity.y += current_gravity * delta
 # handling run 
@@ -65,22 +69,37 @@ func handle_slide():
 
 	mc.play("slide")
 
+func hang_ledge():
+	on_ledge = true
+	velocity = Vector2.ZERO
+	mc.play("hang")
+	
+
 func _physics_process(delta: float) -> void:
 
-	# assigning the state according to the input
+	if wall_detect.is_colliding() and not is_on_floor():
+		current_stat = mc_state.CLIMB
+		on_ledge = true
+		velocity = Vector2.ZERO
 
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	elif on_ledge:
+		current_stat = mc_state.CLIMB
+
+	elif is_on_floor() and Input.is_action_just_pressed("jump"):
 		current_stat = mc_state.JUMP
-	elif !is_on_floor() and not can_descend:
+
+	elif not is_on_floor():
 		current_stat = mc_state.FALL
+
 	elif Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		if Input.is_action_pressed("slide"):
 			current_stat = mc_state.SLIDE
 		else:
 			current_stat = mc_state.WALK
+
 	else:
 		current_stat = mc_state.IDLE
-	# func calling and other stuff
+
 	handle_stat(delta)
 	move_and_slide()
 	
@@ -105,6 +124,8 @@ func handle_stat(delta):
 		mc_state.SLIDE:
 			print("working")
 			handle_slide()
+		mc_state.CLIMB:
+			hang_ledge()
 		
 
 func _ready() -> void:
