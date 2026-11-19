@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bm7lqqogwxf1r"]
+
+[ext_resource type="Texture2D" uid="uid://cabape8w2cexs" path="res://assets/dinosaur/running.png" id="1_hj38q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk3k4"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(0, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s6xo"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(512, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1bss"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(1024, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7yts"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(1536, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmn2a"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(2048, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmv61"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(2560, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkjdx"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(3072, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n07e7"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(3584, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tche"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(4096, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aea6p"]
+atlas = ExtResource("1_hj38q")
+region = Rect2(4608, 0, 512, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sdby"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk3k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s6xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1bss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7yts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmn2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmv61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkjdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n07e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tche")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aea6p")
+}],
+"loop": 1,
+"name": &"running",
+"speed": 13.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3o2al"]
+size = Vector2(355, 177)
+
+[node name="t-rex" type="CharacterBody2D" unique_id=263835542]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1027117236]
+sprite_frames = SubResource("SpriteFrames_1sdby")
+animation = &"running"
+frame_progress = 0.5894484
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1535845053]
+position = Vector2(270.5, 151.5)
+shape = SubResource("RectangleShape2D_3o2al")
