@@ -6,7 +6,8 @@ extends CharacterBody2D
 @onready var jump_col_: CollisionShape2D = $"CollisionShape2D(jump)"
 @onready var wall_detect: RayCast2D = $"wall detect"
 
-
+var climb_speed = 0.0
+const max_climb = 120
 
 const SPEED = 250
 const JUMP_VELOCITY = -300.0
@@ -14,6 +15,7 @@ const gravity = 980
 const run_speed = 200
 var last_direction = ""
 var on_ledge = false
+var climb_distance = 0
 var current_gravity = gravity
 # creating a state machine for different state
 enum mc_state{
@@ -68,11 +70,27 @@ func handle_run(direction):
 func handle_slide():
 
 	mc.play("slide")
-
-func hang_ledge():
+func hang_ledge(delta):
 	on_ledge = true
 	velocity = Vector2.ZERO
-	mc.play("hang")
+	
+	if Input.is_action_pressed("climbing up"):
+		
+		climb_up(delta)
+	else:
+		mc.play("hang")
+	
+
+func climb_up(delta):
+	
+	
+	velocity.y -= 120
+	climb_distance += 1*delta 
+	mc.play("climbing")
+	if climb_distance >= 0.35:
+		velocity.y = 0
+		if climb_distance >= 1.35:
+			on_ledge = false
 	
 
 func _physics_process(delta: float) -> void:
@@ -125,7 +143,7 @@ func handle_stat(delta):
 			print("working")
 			handle_slide()
 		mc_state.CLIMB:
-			hang_ledge()
+			hang_ledge(delta)
 		
 
 func _ready() -> void:

@@ -315,7 +315,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"climbing",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -531,7 +531,9 @@ script = ExtResource("1_4qllp")
 modulate = Color(0.28995052, 0.14098561, 0.06978745, 1)
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_454ae")
-animation = &"hang"
+animation = &"climbing"
+frame = 11
+frame_progress = 1.0
 centered = false
 metadata/_edit_lock_ = true
 
@@ -558,6 +560,6 @@ disabled = true
 
 [node name="wall detect" type="RayCast2D" parent="." unique_id=729108651]
 position = Vector2(62, 19)
-target_position = Vector2(50, 0)
+target_position = Vector2(24, 0)
 
 [connection signal="timeout" from="sfx/Timer" to="." method="_on_timer_timeout"]
