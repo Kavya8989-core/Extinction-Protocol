@@ -506,11 +506,11 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sdby"]
-size = Vector2(14, 78)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3o2al"]
-size = Vector2(20, 89)
+size = Vector2(20, 112)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5tyra"]
+height = 60.0
 
 [node name="Mc" type="CharacterBody2D" unique_id=2000332201]
 script = ExtResource("1_4qllp")
@@ -519,7 +519,7 @@ script = ExtResource("1_4qllp")
 modulate = Color(0.28995052, 0.14098561, 0.06978745, 1)
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_454ae")
-animation = &"idle"
+animation = &"jump"
 centered = false
 metadata/_edit_lock_ = true
 
@@ -534,26 +534,14 @@ attenuation = 0.019915035
 wait_time = 0.5
 autostart = true
 
-[node name="obj (front bottom)" type="Area2D" parent="." unique_id=1394114957]
-position = Vector2(2, 2)
-
-[node name="CollisionShape2D (front)" type="CollisionShape2D" parent="obj (front bottom)" unique_id=2052782670]
-position = Vector2(84, 161)
-shape = SubResource("RectangleShape2D_1sdby")
-
-[node name="obj (back bottom)" type="Area2D" parent="." unique_id=543310688]
-position = Vector2(2, 2)
-
-[node name="CollisionShape2D (front)" type="CollisionShape2D" parent="obj (back bottom)" unique_id=1353752493]
-position = Vector2(37, 164)
-shape = SubResource("RectangleShape2D_1sdby")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=190876325]
-position = Vector2(58, 48.5)
+position = Vector2(58, 62)
 shape = SubResource("RectangleShape2D_3o2al")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D(jump)" type="CollisionShape2D" parent="." unique_id=444088428]
+position = Vector2(59, 57)
+shape = SubResource("CapsuleShape2D_5tyra")
+disabled = true
 
 [connection signal="timeout" from="sfx/Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="obj (front bottom)" to="." method="_on_obj_body_entered"]
-[connection signal="body_exited" from="obj (front bottom)" to="." method="_on_obj_body_exited"]
-[connection signal="body_entered" from="obj (back bottom)" to="." method="_on_obj_front_bottom_2_body_entered"]
-[connection signal="body_exited" from="obj (back bottom)" to="." method="_on_obj_front_bottom_2_body_exited"]

@@ -2,6 +2,8 @@ extends CharacterBody2D
 @onready var walk_sound :  AudioStreamPlayer2D = $sfx/walk
 @onready var walk_timer = $sfx/walk/Timer
 @onready var mc = $AnimatedSprite2D
+@onready var idle_col: CollisionShape2D = $CollisionShape2D
+@onready var jump_col_: CollisionShape2D = $"CollisionShape2D(jump)"
 
 const SPEED = 250
 const JUMP_VELOCITY = -300.0
@@ -25,7 +27,7 @@ var current_stat = mc_state.IDLE
 
 # handleing walk condition
 func handle_walk(direction):
-
+	idle_col.disabled = false
 	if Input.is_action_pressed("left"):
 		last_direction = "left"
 		mc.flip_h = true
@@ -41,7 +43,8 @@ func handle_walk(direction):
 	velocity = direction * SPEED
 #handling jump condition
 func handle_jump():
-
+	idle_col.disabled = true
+	jump_col_.disabled = false
 	mc.play("jump")
 	velocity.y = JUMP_VELOCITY
 	
@@ -52,7 +55,7 @@ func handle_fall(delta):
 		velocity.y += current_gravity * delta
 # handling run 
 func handle_run(direction):
-
+	
 	if Input.is_action_pressed("right"):
 		direction.x += 1
 	if Input.is_action_pressed("left"):
@@ -86,6 +89,7 @@ func handle_stat(delta):
 	var direction = Vector2.ZERO
 	match current_stat:
 		mc_state.IDLE:
+			idle_col.disabled = false
 			velocity.x = 0
 			mc.play("idle")
 		mc_state.WALK:

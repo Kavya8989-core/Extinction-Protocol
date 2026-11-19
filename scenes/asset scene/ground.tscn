@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cygf5vckxscqh" path="res://assets/terrani/DDBE597C-4E56-4B17-8E58-D230D3AB9F0A.png" id="1_yh8r4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74c84"]
-size = Vector2(2449, 107.5)
+size = Vector2(2449, 80.5)
 
 [node name="ground" type="StaticBody2D" unique_id=149868486]
 
@@ -13,5 +13,5 @@ texture = ExtResource("1_yh8r4")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=146793462]
-position = Vector2(1222.5, 760.75)
+position = Vector2(1222.5, 774.25)
 shape = SubResource("RectangleShape2D_74c84")
