@@ -158,9 +158,10 @@ position = Vector2(270.5, 151.5)
 shape = SubResource("RectangleShape2D_3o2al")
 
 [node name="attack range" type="Area2D" parent="." unique_id=450414785]
-position = Vector2(275, 268)
+position = Vector2(275, 227)
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack range" unique_id=2129968985 groups=["mc"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack range" unique_id=2129968985]
 position = Vector2(-3, -35)
 shape = SubResource("RectangleShape2D_wd65m")
 

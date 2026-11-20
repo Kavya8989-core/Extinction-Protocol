@@ -148,4 +148,4 @@ func handle_stat(delta):
 
 func _ready() -> void:
 	walk_sound.attenuation = 0
-	
+	add_to_group("mc")
