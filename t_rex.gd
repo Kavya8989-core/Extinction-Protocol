@@ -5,6 +5,7 @@ extends CharacterBody2D
 var is_mc = false
 const SPEED = 200
 const JUMP_VELOCITY = -400.0
+var direction = ""
 enum dino_state  {
 	RUN,
 	JUMB,
@@ -32,7 +33,12 @@ func handle_run():
 	var distance = (get_tree().get_first_node_in_group("mc").global_position - global_position).normalized()
 	velocity = distance * SPEED
 	move_and_slide()
-	dino.play("running")
+	if velocity.x > 0:
+		dino.play("running")
+		dino.flip_h = false
+	if velocity.x < 0 :
+		dino.play("running")
+		dino.flip_h = true
 	
 	
 	
