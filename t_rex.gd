@@ -1,4 +1,6 @@
 extends CharacterBody2D
+@onready var dino: AnimatedSprite2D = $AnimatedSprite2D
+
 
 var is_mc = false
 const SPEED = 200
@@ -24,10 +26,15 @@ func handle_state():
 		dino_state.STOP:
 			velocity = Vector2.ZERO
 		dino_state.RUN:
-			handle_run(direction)
+			handle_run()
 
-func handle_run(direction):
-	pass
+func handle_run():
+	var distance = (get_tree().get_first_node_in_group("mc").global_position - global_position).normalized()
+	velocity = distance * SPEED
+	move_and_slide()
+	dino.play("running")
+	
+	
 	
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
