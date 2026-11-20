@@ -1,6 +1,36 @@
 [gd_scene format=3 uid="uid://bm7lqqogwxf1r"]
 
+[ext_resource type="Script" uid="uid://bhgskyreetp0x" path="res://t_rex.gd" id="1_4s6xo"]
 [ext_resource type="Texture2D" uid="uid://cabape8w2cexs" path="res://assets/dinosaur/running.png" id="1_hj38q"]
+[ext_resource type="Texture2D" uid="uid://8qu1k1cdvfku" path="res://assets/dinosaur/attack.png" id="2_n1bss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ryce"]
+atlas = ExtResource("2_n1bss")
+region = Rect2(0, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bn8h"]
+atlas = ExtResource("2_n1bss")
+region = Rect2(512, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kliw3"]
+atlas = ExtResource("2_n1bss")
+region = Rect2(1024, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwecl"]
+atlas = ExtResource("2_n1bss")
+region = Rect2(1536, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55xun"]
+atlas = ExtResource("2_n1bss")
+region = Rect2(2048, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8cit"]
+atlas = ExtResource("2_n1bss")
+region = Rect2(2560, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb72y"]
+atlas = ExtResource("2_n1bss")
+region = Rect2(3072, 0, 512, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vk3k4"]
 atlas = ExtResource("1_hj38q")
@@ -46,6 +76,32 @@ region = Rect2(4608, 0, 512, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3ryce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bn8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kliw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwecl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55xun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8cit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb72y")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vk3k4")
 }, {
 "duration": 1.0,
@@ -83,14 +139,30 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3o2al"]
 size = Vector2(355, 177)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd65m"]
+size = Vector2(492, 55)
+
 [node name="t-rex" type="CharacterBody2D" unique_id=263835542]
+position = Vector2(-1, 6)
+script = ExtResource("1_4s6xo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1027117236]
 sprite_frames = SubResource("SpriteFrames_1sdby")
-animation = &"running"
-frame_progress = 0.5894484
+animation = &"attack"
+frame = 6
+frame_progress = 1.0
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1535845053]
 position = Vector2(270.5, 151.5)
 shape = SubResource("RectangleShape2D_3o2al")
+
+[node name="attack range" type="Area2D" parent="." unique_id=450414785]
+position = Vector2(275, 268)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack range" unique_id=2129968985 groups=["mc"]]
+position = Vector2(-3, -35)
+shape = SubResource("RectangleShape2D_wd65m")
+
+[connection signal="body_entered" from="attack range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="attack range" to="." method="_on_attack_range_body_exited"]
