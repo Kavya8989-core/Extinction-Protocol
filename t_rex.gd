@@ -20,6 +20,8 @@ func _physics_process(delta: float) -> void:
 	if is_mc:
 		current_state = dino_state.RUN
 	handle_state()
+	if !is_mc:
+		current_state = dino_state.STOP
 
 func handle_state():
 	var direction
@@ -51,3 +53,15 @@ func _on_attack_range_body_entered(body: Node2D) -> void:
 func _on_attack_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("mc"):
 		is_mc = false
+
+
+
+
+func _on_dodge_rang_body_entered(body: Node2D) -> void:
+	if body.is_in_group("mc") and body.current_stat == body.mc_state.SLIDE  :
+		add_collision_exception_with(body)
+
+
+func _on_dodge_rang_body_exited(body: Node2D) -> void:
+	if body.is_in_group("mc"):
+		remove_collision_exception_with(body)

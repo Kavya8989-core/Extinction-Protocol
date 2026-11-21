@@ -140,13 +140,17 @@ animations = [{
 size = Vector2(355, 177)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wd65m"]
-size = Vector2(492, 55)
+size = Vector2(856, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwxpy"]
+size = Vector2(397, 121)
 
 [node name="t-rex" type="CharacterBody2D" unique_id=263835542]
 position = Vector2(-1, 6)
 script = ExtResource("1_4s6xo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1027117236]
+position = Vector2(11, -67)
 sprite_frames = SubResource("SpriteFrames_1sdby")
 animation = &"attack"
 frame = 6
@@ -154,16 +158,28 @@ frame_progress = 1.0
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1535845053]
-position = Vector2(270.5, 151.5)
+position = Vector2(256, 90)
 shape = SubResource("RectangleShape2D_3o2al")
 
-[node name="attack range" type="Area2D" parent="." unique_id=450414785]
-position = Vector2(275, 227)
+[node name="follow range" type="Area2D" parent="." unique_id=450414785]
+position = Vector2(330, 190)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="follow range" unique_id=2129968985]
+position = Vector2(-38, -35)
+shape = SubResource("RectangleShape2D_wd65m")
+metadata/_edit_lock_ = true
+
+[node name="dodge rang" type="Area2D" parent="." unique_id=1348569215]
+position = Vector2(255, 94)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack range" unique_id=2129968985]
-position = Vector2(-3, -35)
-shape = SubResource("RectangleShape2D_wd65m")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dodge rang" unique_id=618490915]
+position = Vector2(-6.5, 28.5)
+shape = SubResource("RectangleShape2D_qwxpy")
 
-[connection signal="body_entered" from="attack range" to="." method="_on_attack_range_body_entered"]
-[connection signal="body_exited" from="attack range" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="follow range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="follow range" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="dodge rang" to="." method="_on_dodge_rang_body_entered"]
+[connection signal="body_exited" from="dodge rang" to="." method="_on_dodge_rang_body_exited"]

@@ -531,7 +531,7 @@ size = Vector2(20, 112)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5tyra"]
 height = 60.0
 
-[node name="Mc" type="CharacterBody2D" unique_id=2000332201]
+[node name="Mc" type="CharacterBody2D" unique_id=2000332201 groups=["mc"]]
 script = ExtResource("1_4qllp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=871027558]
