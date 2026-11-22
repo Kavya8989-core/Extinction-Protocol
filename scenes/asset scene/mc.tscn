@@ -226,10 +226,6 @@ region = Rect2(640, 0, 128, 128)
 atlas = ExtResource("5_jlmjl")
 region = Rect2(768, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_462ip"]
-atlas = ExtResource("5_jlmjl")
-region = Rect2(896, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_br2jg"]
 atlas = ExtResource("5_jlmjl")
 region = Rect2(1024, 0, 128, 128)
@@ -474,10 +470,16 @@ animations = [{
 "texture": SubResource("AtlasTexture_r3n4q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_462ip")
+"texture": SubResource("AtlasTexture_1voed")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_462ip")
+"texture": SubResource("AtlasTexture_r3n4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1voed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3n4q")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_br2jg")
@@ -538,7 +540,7 @@ script = ExtResource("1_4qllp")
 modulate = Color(0.28995052, 0.14098561, 0.06978745, 1)
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_454ae")
-animation = &"climbing"
+animation = &"slide"
 frame = 12
 frame_progress = 1.0
 centered = false

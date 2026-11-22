@@ -63,5 +63,5 @@ func _on_dodge_rang_body_entered(body: Node2D) -> void:
 
 
 func _on_dodge_rang_body_exited(body: Node2D) -> void:
-	if body.is_in_group("mc"):
+	if body.is_in_group("mc") and body.current_stat == body.mc_state.SLIDE  :
 		remove_collision_exception_with(body)
