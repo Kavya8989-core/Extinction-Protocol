@@ -179,6 +179,15 @@ metadata/_edit_group_ = true
 position = Vector2(-6.5, 28.5)
 shape = SubResource("RectangleShape2D_qwxpy")
 
+[node name="collision indicator" type="RayCast2D" parent="." unique_id=1326997491]
+position = Vector2(338, 121)
+target_position = Vector2(199, -1)
+metadata/_edit_lock_ = true
+
+[node name="idle detect right" type="RayCast2D" parent="." unique_id=12065468]
+
+[node name="idle detect left" type="RayCast2D" parent="." unique_id=1151432799]
+
 [connection signal="body_entered" from="follow range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="follow range" to="." method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="dodge rang" to="." method="_on_dodge_rang_body_entered"]
