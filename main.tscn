@@ -68,7 +68,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="t-rex" parent="." unique_id=263835542 instance=ExtResource("9_kek77")]
-position = Vector2(212, 344)
+position = Vector2(214, 404)
 
 [node name="ground" parent="." unique_id=149868486 instance=ExtResource("2_1bvp3")]
 position = Vector2(-391, -135)

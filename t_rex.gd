@@ -1,8 +1,12 @@
 extends CharacterBody2D
 @onready var dino: AnimatedSprite2D = $AnimatedSprite2D
+@onready var idle_detect_right: RayCast2D = $"idle detect right"
+@onready var idle_detect_left: RayCast2D = $"idle detect left"
+
 
 
 var is_mc = false
+var is_ground = false
 const SPEED = 200
 const JUMP_VELOCITY = -400.0
 var direction = ""
@@ -17,11 +21,15 @@ var current_state = dino_state.STOP
 
 func _physics_process(delta: float) -> void:
 	var distance = Vector2.ZERO
-	if is_mc:
+	if (direction == "right" and idle_detect_right.is_colliding()) or (direction == "left" and idle_detect_left.is_colliding()):
+		is_ground = true
+	else:
+		is_ground = false
+	if is_mc and is_ground:
 		current_state = dino_state.RUN
-	handle_state()
-	if !is_mc:
+	else:
 		current_state = dino_state.STOP
+	handle_state()
 
 func handle_state():
 	var direction

@@ -146,7 +146,7 @@ size = Vector2(856, 55)
 size = Vector2(397, 121)
 
 [node name="t-rex" type="CharacterBody2D" unique_id=263835542]
-position = Vector2(-1, 6)
+position = Vector2(-5, 6)
 script = ExtResource("1_4s6xo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1027117236]
@@ -185,8 +185,12 @@ target_position = Vector2(199, -1)
 metadata/_edit_lock_ = true
 
 [node name="idle detect right" type="RayCast2D" parent="." unique_id=12065468]
+position = Vector2(438, 12)
+target_position = Vector2(166, 167)
 
 [node name="idle detect left" type="RayCast2D" parent="." unique_id=1151432799]
+position = Vector2(90, 9)
+target_position = Vector2(-132, 172)
 
 [connection signal="body_entered" from="follow range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="follow range" to="." method="_on_attack_range_body_exited"]
