@@ -186,11 +186,11 @@ metadata/_edit_lock_ = true
 
 [node name="idle detect right" type="RayCast2D" parent="." unique_id=12065468]
 position = Vector2(438, 12)
-target_position = Vector2(183, 169)
+target_position = Vector2(105, 174)
 
 [node name="idle detect left" type="RayCast2D" parent="." unique_id=1151432799]
 position = Vector2(90, 9)
-target_position = Vector2(-132, 172)
+target_position = Vector2(-75, 177)
 
 [connection signal="body_entered" from="follow range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="follow range" to="." method="_on_attack_range_body_exited"]
