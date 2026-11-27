@@ -172,7 +172,7 @@ shape = SubResource("RectangleShape2D_wd65m")
 metadata/_edit_lock_ = true
 
 [node name="dodge rang" type="Area2D" parent="." unique_id=1348569215]
-position = Vector2(255, 94)
+position = Vector2(268, 101)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dodge rang" unique_id=618490915]
