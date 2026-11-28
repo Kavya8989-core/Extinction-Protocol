@@ -75,7 +75,7 @@ position = Vector2(-391, -135)
 metadata/_edit_lock_ = true
 
 [node name="ground2" parent="." unique_id=1609774519 instance=ExtResource("2_1bvp3")]
-position = Vector2(1355, -202)
+position = Vector2(2128, -110)
 
 [node name="Mc" parent="." unique_id=2000332201 instance=ExtResource("2_h2yge")]
 position = Vector2(47, 462)
